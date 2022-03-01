@@ -38,12 +38,10 @@ db_client = InfluxDBClient(
     '8086',
     'admin',
     '',
-    'testDB'
+    'tstDB'
 )
 
-
-
-db_client.create_database("testDB")
+db_client.create_database("tstDB")
 
 @application.route('/')
 def index():     
