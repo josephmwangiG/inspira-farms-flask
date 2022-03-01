@@ -30,7 +30,6 @@ application.config.setdefault("INFLUXDB_TIMEOUT", None)
 application.config.setdefault("INFLUXDB_USE_UDP", False)
 application.config.setdefault("INFLUXDB_UDP_PORT", 4444)
 application.config.setdefault("INFLUXDB_PROXIES", None)
-application.config.setdefault("INFLUXDB_POOL_SIZE", 10)
 application.config.setdefault("INFLUXDB_CREATE_DATABASE", True)
 
 mqtt_client = Mqtt(application)
