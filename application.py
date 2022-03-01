@@ -22,10 +22,10 @@ db_client = InfluxDBClient(
     '8086',
     'admin',
     '',
-    'tstDB'
+    'coldRoomDB'
 )
 
-# db_client.create_database("tstDB")
+db_client.create_database("coldRoomDB")
 
 @application.route('/')
 def index():     
@@ -44,11 +44,11 @@ def data():
     energyMeter = [float(result['energyMeter']) for result in results]
 
     # Calculate result
-    latest_humidity = roomHumidity[14]
-    latest_room_temp = roomTemperature[14]
+    latest_humidity = roomHumidity[1]
+    latest_room_temp = roomTemperature[1]
     highest_field_temp = max(fieldTemperature)
     avg_room_temperature = sum(roomTemperature) / len(roomTemperature)
-    energy_consumption = energyMeter[14] - energyMeter[0]
+    energy_consumption = energyMeter[1] - energyMeter[0]
 
     data = {
         "latest_humidity": latest_humidity,
