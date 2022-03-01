@@ -16,22 +16,6 @@ application.config['MQTT_PASSWORD'] = ''
 application.config['MQTT_KEEPALIVE'] = 5
 application.config['MQTT_TLS_ENABLED'] = False
 
-
-#Database configuration
-application.config.setdefault("INFLUXDB_HOST", "localhost")
-application.config.setdefault("INFLUXDB_PORT", "8086")
-application.config.setdefault("INFLUXDB_USER", "admin")
-application.config.setdefault("INFLUXDB_PASSWORD", "")
-application.config.setdefault("INFLUXDB_DATABASE", "testDB")
-application.config.setdefault("INFLUXDB_SSL", False)
-application.config.setdefault("INFLUXDB_VERIFY_SSL", False)
-application.config.setdefault("INFLUXDB_RETRIES", 3)
-application.config.setdefault("INFLUXDB_TIMEOUT", None)
-application.config.setdefault("INFLUXDB_USE_UDP", False)
-application.config.setdefault("INFLUXDB_UDP_PORT", 4444)
-application.config.setdefault("INFLUXDB_PROXIES", None)
-application.config.setdefault("INFLUXDB_CREATE_DATABASE", True)
-
 mqtt_client = Mqtt(application)
 db_client = InfluxDBClient(
     'localhost',
@@ -41,7 +25,7 @@ db_client = InfluxDBClient(
     'tstDB'
 )
 
-db_client.create_database("tstDB")
+# db_client.create_database("tstDB")
 
 @application.route('/')
 def index():     
