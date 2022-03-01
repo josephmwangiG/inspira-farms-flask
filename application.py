@@ -42,13 +42,13 @@ db_client = InfluxDBClient(
     'testDB'
 )
 
-# db_client.create_database("testDB")
+
+
+db_client.create_database("testDB")
 
 @application.route('/')
-def index(): 
-    
-    
-    return "application"
+def index():     
+    return "Flask and react application application"
 
 
 @application.route('/data')
