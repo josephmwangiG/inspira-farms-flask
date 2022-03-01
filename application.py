@@ -44,11 +44,11 @@ def data():
     energyMeter = [float(result['energyMeter']) for result in results]
 
     # Calculate result
-    latest_humidity = roomHumidity[1]
-    latest_room_temp = roomTemperature[1]
+    latest_humidity = roomHumidity[14]
+    latest_room_temp = roomTemperature[14]
     highest_field_temp = max(fieldTemperature)
     avg_room_temperature = sum(roomTemperature) / len(roomTemperature)
-    energy_consumption = energyMeter[1] - energyMeter[0]
+    energy_consumption = energyMeter[0] - energyMeter[14]
 
     data = {
         "latest_humidity": latest_humidity,
@@ -65,7 +65,7 @@ def data():
 
 @mqtt_client.on_connect()
 def handle_connect(client, userData, flags, rc):
-    mqtt_client.subscribe('/inspiraFarmsColdRoom')
+    mqtt_client.subscribe('/518ca9fd-7a01')
 
 @mqtt_client.on_message()
 def on_message(client, userData, message):
